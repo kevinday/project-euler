@@ -1,8 +1,3 @@
-#triangle1 = [
-#[3],
-#[7, 4],
-#[2, 4, 6],
-#[8, 5, 9, 3]]
 
 triangle = [
 [75],
@@ -25,25 +20,17 @@ def max(a,b)
   return a > b ? a : b
 end
 
-sum=triangle[0][0]
-index=0
-for level in 1...triangle.length
-  left_index = index
-  right_index = index + 1
+#start at second to last level, modify triangle to store sume of largest path below it.
+(0...triangle.length-1).reverse_each do |level|
+  for index in 0...triangle[level].length
+    left_index = index
+    right_index = index + 1
 
-  left = triangle[level][left_index]
-  right = triangle[level][right_index]
+    left = triangle[level + 1][left_index]
+    right = triangle[level + 1][right_index]
 
-  if left > right then
-    puts left
-    sum += left
-    index = left_index
-  else
-    puts right
-    sum += right
-    index = right_index
-  end  
-
+    triangle[level][index] = triangle[level][index] + max(left, right)
+  end 
 end
 
-puts sum
+puts triangle[0][0]
