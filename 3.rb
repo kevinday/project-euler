@@ -1,5 +1,3 @@
-
-
 def prime?(n)
   if n <= 1 then
     return false
@@ -24,22 +22,18 @@ def prime?(n)
   true
 end
 
-num=100
-largest=-1
-
-#if num%2==0 then
-#  largest=2
-#end
-
-#i=1
-
-max = Math.sqrt(num)
+num=600851475143
+largest = -1
 
 for i in 1...num
-#for i in 2...Math.sqrt(num)
+
+  if num < i then
+    break
+  end
+
   if num%i==0 and prime?(i) then
     largest=i
-    puts largest
+    num=num/i
   end
 end
 
