@@ -1,39 +1,17 @@
+size=4000000
 
-
-def fib(n)
-  if n==0 then
-    return 0
-  elsif n==1 then
-    return 1
-  else
-    return fib(n-1) + fib(n-2)
-  end
-end
-
-n=4000000
-#n=10
 sum=0
-i=-1
+fib2=0
+fib1=1
 
-loop do
-  i+=1
+while true do
+  fib = fib1 + fib2
+  break if fib > size
 
-#  if i.odd? then 
-#    next
-#  end
+  sum += fib if fib.even?
 
-  val = fib(i)
-
-  if val.odd? then
-    next
-  end
-
-  if val > n then 
-    break
-  end
-
-  sum +=val
-
+  fib2 = fib1
+  fib1 = fib
 end
 
 puts sum
