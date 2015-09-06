@@ -1,7 +1,7 @@
 def sumOfSquares(n)
   result=0
   n.times do |i|
-    result+=(i+1)**2
+    result += (i+1)**2
   end
   result
 end
@@ -9,11 +9,10 @@ end
 def squareOfSums(n)
   result=0
   n.times do |i|
-    result+=(i+1)
+    result += (i+1)
   end
-  result=result**2
+  result = result**2
 end
-
 
 num=100
 
