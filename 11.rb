@@ -1,3 +1,5 @@
+require_relative "helpers"
+
 grid=[[ 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8],
       [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48,  4, 56, 62,  0],
       [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30,  3, 49, 13, 36, 65],
@@ -19,40 +21,36 @@ grid=[[ 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 9
       [20, 73, 35, 29, 78, 31, 90,  1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57,  5, 54],
       [01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52,  1, 89, 19, 67, 48]]
 
-#puts grid[0][0]
-product=0
+product = 0
 
 #todo:make this work for not just 4.
-def mult(a,b,c,d)
+def mult(a, b, c, d)
   if a.nil? || b.nil? || c.nil? || d.nil? then
     return 0
   end
-  return a*b*c*d
+  return a * b * c * d
 end
 
-def max(a,b)
-  return a > b ? a : b
-end
-
-num_cols=grid.length
+num_cols = grid.length
+#solution is obvi dumb because it assumes n=4. Could easily make this generic though.
 for x in 0...grid.length
-  num_rows=grid[x].length
+  num_rows = grid[x].length
   for y in 0...grid[x].length
     #horizontal
-    if (x+3<num_cols) then
-      product=max(product, mult(grid[x][y],grid[x+1][y],grid[x+2][y],grid[x+3][y]))
+    if (x + 3 < num_cols) then
+      product = max(product, mult(grid[x][y], grid[x + 1][y], grid[x + 2][y], grid[x + 3][y]))
     end
     #down
-    if (y+3<num_rows) then
-      product=max(product, mult(grid[x][y],grid[x][y+1],grid[x][y+2],grid[x][y+3]))
+    if (y + 3 < num_rows) then
+      product=max(product, mult(grid[x][y], grid[x][y + 1], grid[x][y + 2], grid[x][y + 3]))
     end
     #diag_left
-    if (y+3<num_rows && x-3 >= 0) then
-      product=max(product, mult(grid[x][y],grid[x-1][y+1],grid[x-2][y+2],grid[x-3][y+3]))
+    if (y + 3 < num_rows && x - 3 >= 0) then
+      product=max(product, mult(grid[x][y], grid[x - 1][y + 1], grid[x - 2][y + 2], grid[x - 3][y + 3]))
     end
     #diag_right
-    if (y+3<num_rows && x+3 < num_cols ) then
-      product=max(product, mult(grid[x][y],grid[x+1][y+1],grid[x+2][y+2],grid[x+3][y+3]))
+    if (y + 3 < num_rows && x + 3 < num_cols ) then
+      product=max(product, mult(grid[x][y], grid[x + 1][y + 1] ,grid[x + 2][y + 2], grid[x + 3][y + 3]))
     end
   end
 end

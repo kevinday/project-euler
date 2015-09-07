@@ -1,7 +1,7 @@
-@width=20
-@height=20
+@width = 20
+@height = 20
 
-@cache=Array.new(@height+2){Array.new(@width+1)}
+@cache=Array.new(@height + 2){Array.new(@width + 1)}
 
 def traverse(x, y, count)
 
@@ -14,12 +14,12 @@ def traverse(x, y, count)
     return @cache[x][y]
   end
 
-  if (x==@width && y==@height) then
-    return count+1
+  if x == @width && y == @height then
+    return count + 1
   end
 
-  paths = traverse(x+1, y, count) + traverse(x, y+1, count)
-  @cache[x][y]=paths
+  paths = traverse(x + 1, y, count) + traverse(x, y + 1, count)
+  @cache[x][y] = paths
   return paths
   
 end

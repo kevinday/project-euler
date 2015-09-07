@@ -36,3 +36,7 @@ end
 def lcm(a, b)
   return a * (b / gcd(a,b))
 end
+
+def max(a,b)
+  return a > b ? a : b
+end
