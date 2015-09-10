@@ -1,7 +1,7 @@
 @width = 20
 @height = 20
 
-@cache=Array.new(@height + 2){Array.new(@width + 1)}
+@cache=Array.new(@height + 1){Array.new(@width + 1)}
 
 def traverse(x, y, count)
 
