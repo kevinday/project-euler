@@ -43,12 +43,34 @@ def max(a,b)
 end
 
 
-def divisorSum(n)
-  sum = 0
-  (n / 2).downto(1) do |i|
-    sum += i if n % i == 0
+#based roughly on this: http://www.math-magic.com/misc/pos_int_div2.htm
+def divisorSum(n, primes)
+
+  sum = 1
+  current = n
+
+  primes.each do |prime|
+
+    break if prime * prime > current
+    break if current <= 1
+
+    if current % prime == 0 then
+      j = prime * prime
+      current = current / prime
+      while current % prime == 0 do
+        j = j * prime
+        current = current / prime
+      end
+
+      sum = sum * (j - 1) / (prime - 1)
+    end
   end
-  sum
+
+  if current > 1 then
+    sum *= current + 1
+  end
+
+  return sum - n
 end
 
 
@@ -81,7 +103,7 @@ def getPrimes(limit)
   sieve.each_index do |i|
     primes.push(i) if sieve[i] == 1
   end
-  
+
   primes
 end
 
