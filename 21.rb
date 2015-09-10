@@ -1,13 +1,7 @@
+require_relative "helpers"
+
 max = 10000
 sums = {}
-
-def divisorSum(n)
-  sum = 0
-  (n / 2).downto(1) do |i|
-    sum += i if n % i == 0
-  end
-  sum
-end
 
 sum = 0
 1.upto(max-1) do |i|

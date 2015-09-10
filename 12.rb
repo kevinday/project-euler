@@ -1,21 +1,9 @@
+require_relative "helpers"
+
 #make some primes.
 @n = 100000
 
-@sieve = Array.new(@n+1,1)
-@sieve[0] = 0
-@sieve[1] = 0
-@sieve[2] = 1
-
-#sieve
-for i in 2...@n
-  if @sieve[i] == 1 then
-    j = i+i
-    while j <= @n do
-      @sieve[j] = 0
-      j += i
-    end
-  end
-end
+@sieve = getSieve(@n)
 
 @primes = []
 for i in 0...@n
