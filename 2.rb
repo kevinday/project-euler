@@ -1,8 +1,8 @@
-size=4000000
+size = 4000000
 
-sum=0
-fib2=0
-fib1=1
+sum = 0
+fib2 = 0
+fib1 = 1
 
 while true do
   fib = fib1 + fib2
