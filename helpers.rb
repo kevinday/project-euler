@@ -55,22 +55,33 @@ end
 def getSieve(limit)
   return [] if limit < 2
 
-  primes = Array.new(limit + 1,1)
-  primes[0] = 0
-  primes[1] = 0
-  primes[2] = 1
+  sieve = Array.new(limit + 1,1)
+  sieve[0] = 0
+  sieve[1] = 0
+  sieve[2] = 1
 
   #sieve
   for i in 2...limit
-    if primes[i] == 1 then
+    if sieve[i] == 1 then
       j = i + i
       while j <= limit do
-        primes[j] = 0
+        sieve[j] = 0
         j += i
       end
     end
   end
-  primes
+  sieve
 end
 
+
+def getPrimes(limit)
+  sieve = getSieve(limit)
+  primes = []
+
+  sieve.each_index do |i|
+    primes.push(i) if sieve[i] == 1
+  end
+  
+  primes
+end
 
