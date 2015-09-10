@@ -1,5 +1,4 @@
 index = 1
-fib = 0
 fib2 = 0
 fib1 = 1
 
