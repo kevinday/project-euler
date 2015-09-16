@@ -19,7 +19,7 @@ def chopDigit(n, digit)
   (n.to_s.split('') - digit.to_s.split('')).join.to_i
 end
 
-num_product, den_product = 1
+num_product, den_product = 1, 1
 
 11.upto(98) do |a|
   next if a % 10 == 0 #multiples of 10 are trivial examples, and excluded
