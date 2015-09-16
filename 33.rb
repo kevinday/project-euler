@@ -20,7 +20,6 @@ def chopDigit(n, digit)
 end
 
 num_product, den_product = 1
-den_product = 1
 
 11.upto(98) do |a|
   next if a % 10 == 0 #multiples of 10 are trivial examples, and excluded
