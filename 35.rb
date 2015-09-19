@@ -8,8 +8,7 @@ limit = 1000000
 def circularPrime?(prime)
   digits = prime.to_s.split('')
   (digits.length - 1).times do
-    first = digits.shift
-    digits.push(first)
+    digits.push(digits.shift)
     return false if !@primes.member?(digits.join.to_i)
   end
   true
