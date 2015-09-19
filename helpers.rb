@@ -14,7 +14,7 @@ def prime?(n)
   max = Math.sqrt(n)
   i = 5
   until i > max do
-    if n%i == 0 then
+    if n % i == 0 then
       return false
     end
     i += 1
@@ -23,10 +23,10 @@ def prime?(n)
 end
 
 
-def gcd(a,b)
+def gcd(a, b)
   while b > 0 do
     prevB = b
-    b = a%b
+    b = a % b
     a = prevB
   end
   a
@@ -34,7 +34,7 @@ end
 
 
 def lcm(a, b)
-  return a * (b / gcd(a,b))
+  return a * (b / gcd(a, b))
 end
 
 
