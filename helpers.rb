@@ -108,11 +108,6 @@ def getPrimes(limit)
 end
 
 
-#def pallindrome?(n)
-#  n.to_s == n.to_s.reverse
-#end
-
-
 def palindrome?(n, base = 10)
     reversed = 0
     k = n
