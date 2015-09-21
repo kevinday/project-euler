@@ -12,7 +12,7 @@ for i in (100..999).reverse_each do
       break
     end
 
-    if pallindrome?(product)  then
+    if palindrome?(product)  then
       largest = product
       puts largest
     end

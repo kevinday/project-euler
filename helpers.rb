@@ -107,7 +107,19 @@ def getPrimes(limit)
   primes
 end
 
-def pallindrome?(n)
-  n.to_s == n.to_s.reverse
-end
 
+#def pallindrome?(n)
+#  n.to_s == n.to_s.reverse
+#end
+
+
+def palindrome?(n, base = 10)
+    reversed = 0
+    k = n
+ 
+    while k > 0 do
+        reversed = base * reversed + k % base
+        k /= base
+    end
+    n == reversed
+end
