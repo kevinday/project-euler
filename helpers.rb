@@ -107,3 +107,7 @@ def getPrimes(limit)
   primes
 end
 
+def pallindrome?(n)
+  n.to_s == n.to_s.reverse
+end
+
